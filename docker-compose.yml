@@ -1,0 +1,13 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: orkesta-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: orkesta
+      POSTGRES_PASSWORD: orkesta
+      POSTGRES_DB: orkesta
+    ports:
+      - "5432:5432"            # Aaron: cambiá a 5440 si ya tenés algo en 5432
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
